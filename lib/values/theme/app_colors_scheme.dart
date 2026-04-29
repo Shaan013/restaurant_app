@@ -12,5 +12,6 @@ class AppColorsScheme {
     surface: AppColors.white,
     primary: AppColors.orange,
     seedColor: AppColors.orange,
+    outline: AppColors.grey,
   );
 }

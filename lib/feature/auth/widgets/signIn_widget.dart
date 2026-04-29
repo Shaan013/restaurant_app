@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant_app/feature/auth/view_model/signin_conttroler.dart';
 import 'package:restaurant_app/router/app_route.dart';
@@ -72,11 +73,13 @@ class _SignupWidgetState extends State<SignupWidget> {
               spacing: 15.h,
               children: [
                 TextFormField(
+                  textInputAction: .next,
                   validator: (value) => ValidationHelper.noEmpty(value),
                   controller: loginConttroler.fullNameController,
                   decoration: AppInputDecoration.auth(prefixText: "Full Name "),
                 ),
                 TextFormField(
+                  textInputAction: .next,
                   validator: (value) => ValidationHelper.validateEmail(value),
                   controller: loginConttroler.emailController,
                   decoration: AppInputDecoration.auth(
@@ -84,6 +87,9 @@ class _SignupWidgetState extends State<SignupWidget> {
                   ),
                 ),
                 TextFormField(
+                  textInputAction: .next,
+                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                  keyboardType: .numberWithOptions(signed: false),
                   maxLength: 10,
                   validator: (value) => ValidationHelper.validatePhone(value),
                   controller: loginConttroler.phoneNoController,
@@ -92,6 +98,7 @@ class _SignupWidgetState extends State<SignupWidget> {
                   ),
                 ),
                 TextFormField(
+                  textInputAction: .done,
                   validator: (value) => ValidationHelper.noEmpty(value),
                   controller: loginConttroler.passwordController,
                   decoration: AppInputDecoration.auth(

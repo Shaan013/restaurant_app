@@ -19,13 +19,23 @@ class $AssetsImagesGen {
 class $AssetsSvgsGen {
   const $AssetsSvgsGen();
 
+  final SvgGenImage vector1 = const SvgGenImage('assets/svgs/Vector (1).svg');
   final SvgGenImage appleLogo = const SvgGenImage('assets/svgs/apple_logo.svg');
   final SvgGenImage facebookLogo = const SvgGenImage(
     'assets/svgs/facebook_logo.svg',
   );
+  final SvgGenImage filter = const SvgGenImage('assets/svgs/filter.svg');
   final SvgGenImage googleLogo = const SvgGenImage(
     'assets/svgs/google_logo.svg',
   );
+  final SvgGenImage heart = const SvgGenImage('assets/svgs/heart.svg');
+  final SvgGenImage house = const SvgGenImage('assets/svgs/house.svg');
+  final SvgGenImage location = const SvgGenImage('assets/svgs/location.svg');
+  final SvgGenImage locationNorth = const SvgGenImage(
+    'assets/svgs/location_north.svg',
+  );
+  final SvgGenImage person = const SvgGenImage('assets/svgs/person.svg');
+  final SvgGenImage tag = const SvgGenImage('assets/svgs/tag.svg');
 }
 
 class AssetGenImage {

@@ -1,9 +1,15 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:restaurant_app/core/locator/main_locator.dart';
+import 'package:restaurant_app/data/repository/user_repository.dart';
+import 'package:restaurant_app/router/app_route.dart';
 
 import '../../../data/models/requasts/Login_model.dart';
 import '../../../widgets/app_overlay_loader.dart';
+import '../../../widgets/message_snack_bar.dart';
 
 class LoginController {
+  final loginRepository = locator<AuthRepository>();
   final formKey = GlobalKey<FormState>();
   final passwordController = TextEditingController();
   final emailController = TextEditingController();
@@ -22,15 +28,28 @@ class LoginController {
     try {
       AppOverlayLoader.show(context, message: "Adding User...");
       print("on loging");
-      await Future.delayed(Duration(seconds: 2));
-      print("on loging");
+      final res = await loginRepository.checkLogin(getModel());
+      if (res == true) {
+        showMessage(
+          context,
+          "you login in successfully ",
+          type: MessageType.success,
+        );
+        context.router.replace(HomeRoute());
+      } else {
+        showMessage(
+          context,
+          "something want wrong please try again ",
+          type: MessageType.warning,
+        );
+      }
 
       if (context.mounted) {
         // context.router.replace(LoginRoute(isSigningPage: false));
       }
     } catch (e) {
       if (context.mounted) {
-        // showMessage(context, e.toString(), type: MessageType.error);
+        showMessage(context, e.toString(), type: MessageType.error);
       }
     } finally {
       AppOverlayLoader.hide();

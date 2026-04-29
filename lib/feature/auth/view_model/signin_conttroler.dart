@@ -1,11 +1,15 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
-
+import 'package:restaurant_app/core/locator/main_locator.dart';
+import 'package:restaurant_app/data/repository/user_repository.dart';
+import 'package:restaurant_app/router/app_route.dart';
+import 'package:restaurant_app/widgets/message_snack_bar.dart';
 
 import '../../../data/models/requasts/Login_model.dart';
 import '../../../widgets/app_overlay_loader.dart';
 
 class SingInConttroler {
+  final signInRepository = locator<AuthRepository>();
   final formKey = GlobalKey<FormState>();
   final fullNameController = TextEditingController();
   final emailController = TextEditingController();
@@ -27,15 +31,28 @@ class SingInConttroler {
     try {
       AppOverlayLoader.show(context, message: "Adding User...");
       print("on loging");
-      await Future.delayed(Duration(seconds: 2));
-      print("on loging");
-
-      if (context.mounted) {
-        // context.router.replace(LoginRoute(isSigningPage: false));
+      final bool res = await signInRepository.signin(getModel());
+      print("on loging res  : ${res}");
+      if (res == true) {
+        showMessage(
+          context,
+          "you sign in successfully ",
+          type: MessageType.success,
+        );
+        context.router.replace(HomeRoute());
+      } else {
+        showMessage(
+          context,
+          "something want wrong please try again ",
+          type: MessageType.warning,
+        );
       }
+      // if (context.mounted) {
+      //    context.router.replace(LoginRoute(isSigningPage: false));
+      // }
     } catch (e) {
       if (context.mounted) {
-        // showMessage(context, e.toString(), type: MessageType.error);
+        showMessage(context, e.toString(), type: MessageType.error);
       }
     } finally {
       AppOverlayLoader.hide();

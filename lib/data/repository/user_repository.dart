@@ -11,13 +11,47 @@ import '../../core/network/api_client.dart';
 class AuthRepository {
   final ApiClient _apiClient = locator<ApiClient>();
 
-  Future<BaseResponse<UserModel>> checkLogin(LoginModel loginInfo) async {
+  bool chackSussece(String? code){
+    if (code == 200.toString()) {
+      print("i am in 200");
+      return true;
+    } else {
+      print("i am in wrong place");
+      return false;
+    }
+
+  }
+
+  Future<bool> checkLogin(LoginModel loginInfo) async {
     try {
-      final BaseResponse<UserModel> result = await _apiClient.getAllUser(
-        loginInfo,
-      );
+      final BaseResponse<UserModel> result = await _apiClient.login(loginInfo);
       print("result.code  ${result.code}");
-      return result;
+      return chackSussece(result.code);
+    } on DioException catch (e) {
+      log("message  : ${e.message}");
+
+      final massage = DioExceptionUtil.handleError(e);
+      log("error massege : $massage");
+      throw massage;
+    } catch (e) {
+      print("e ${e}");
+      rethrow;
+    }
+  }
+
+  Future<bool> signin(LoginModel user) async {
+    try {
+      final BaseResponse<UserModel> result = await _apiClient.signInAccount(
+        user,
+      );
+      print("result.code  ${result.code} ${result.code.runtimeType}");
+      if (result.code == 200.toString()) {
+        print("i am in 200");
+        return true;
+      } else {
+        print("i am in wrong place");
+        return false;
+      }
     } on DioException catch (e) {
       log("message  : ${e.message}");
 

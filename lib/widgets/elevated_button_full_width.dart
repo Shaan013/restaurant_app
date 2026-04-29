@@ -6,7 +6,26 @@ Widget fullWidthButton({
   VoidCallback? onTap,
   required Color color,
   TextStyle? style,
+  Widget? label,
 }) {
+  if (label != null) {
+    return Row(
+      children: [
+        Expanded(
+          child: ElevatedButton.icon(
+            style: ElevatedButton.styleFrom(
+              padding: EdgeInsets.all(12),
+              backgroundColor: color,
+              shape: RoundedRectangleBorder(borderRadius: AppBorderRadius.m),
+            ),
+            onPressed: onTap ?? () {},
+            label: Text(text, style: style),
+            icon: label,
+          ),
+        ),
+      ],
+    );
+  }
   return Row(
     children: [
       Expanded(
