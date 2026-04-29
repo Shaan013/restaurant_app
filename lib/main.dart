@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       minTextAdapt: true,
-      designSize: Size(393.73, 872),
+      designSize: Size(390, 844),
       builder: (context, child) {
         return MaterialApp.router(
           localizationsDelegates: [

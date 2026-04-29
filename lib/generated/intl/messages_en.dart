@@ -87,6 +87,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Forgot Password?"),
         "gallery": MessageLookupByLibrary.simpleMessage("Gallery"),
         "getStarted": MessageLookupByLibrary.simpleMessage("Get Started"),
+        "headinggetStartedWithLobster":
+            MessageLookupByLibrary.simpleMessage("Get Started with Lobster"),
         "hello": MessageLookupByLibrary.simpleMessage("Hello!"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "iAgree": MessageLookupByLibrary.simpleMessage("I agree to "),

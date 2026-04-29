@@ -5,11 +5,11 @@ import 'app_colors.dart';
 
 class AppOutLineBorder {
   static OutlineInputBorder authEnable= OutlineInputBorder(
-    borderRadius: BorderRadius.circular(25).r,
+    borderRadius: BorderRadius.circular(12).r,
     borderSide: BorderSide(color: Colors.transparent, width: 0),
   );
   static OutlineInputBorder authFocus= OutlineInputBorder(
-    borderRadius: BorderRadius.circular(25).r,
+    borderRadius: BorderRadius.circular(12).r,
     borderSide: BorderSide(color: AppColors.deepGray, width: 1),
   );
 }

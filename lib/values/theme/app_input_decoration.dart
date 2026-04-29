@@ -26,7 +26,7 @@ class AppInputDecoration {
     enabledBorder: AppOutLineBorder.authEnable,
     focusedBorder: AppOutLineBorder.authFocus,
     border: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(25).r,
+      borderRadius: BorderRadius.circular(12).r,
       borderSide: BorderSide(color: Colors.transparent, width: 0),
     ),
   );

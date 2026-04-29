@@ -1209,6 +1209,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Get Started with Lobster`
+  String get headinggetStartedWithLobster {
+    return Intl.message(
+      'Get Started with Lobster',
+      name: 'headinggetStartedWithLobster',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

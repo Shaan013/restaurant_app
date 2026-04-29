@@ -118,5 +118,6 @@
   "pleaseCheckYourInternetConnection": "Please check your internet connection",
   "addEmployee" : "Add employee",
   "somethingWantWrongWithData": "something want wrong with data",
-  "lblHomePage": "Home Page"
+  "lblHomePage": "Home Page",
+  "headinggetStartedWithLobster": "Get Started with Lobster"
 }

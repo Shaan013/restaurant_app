@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:restaurant_app/values/theme/app_border_radius.dart';
 
-Widget fullWidthButton(
-  BuildContext context, {
+Widget fullWidthButton({
   required String text,
   VoidCallback? onTap,
+  required Color color,
+  TextStyle? style,
 }) {
   return Row(
     children: [
@@ -11,14 +13,11 @@ Widget fullWidthButton(
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             padding: EdgeInsets.all(12),
-            backgroundColor: Theme.of(context).colorScheme.primary,
+            backgroundColor: color,
+            shape: RoundedRectangleBorder(borderRadius: AppBorderRadius.m),
           ),
-          onPressed:
-              onTap ??
-              () {
-                debugPrint("not on Tap");
-              },
-          child: Text(text, style: TextTheme.of(context).labelLarge),
+          onPressed: onTap ?? () {},
+          child: Text(text, style: style),
         ),
       ),
     ],
