@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:restaurant_app/widgets/show_case_card_widget.dart';
 import 'package:restaurant_app/values/extensions/app_padding_ext.dart';
 import 'package:restaurant_app/values/theme/app_border_radius.dart';
 import 'package:restaurant_app/values/theme/app_colors.dart';
 import 'package:restaurant_app/widgets/app_network_image.dart';
 
+import '../../../data/models/responses/NearbyHotels.dart';
 import '../../../generated/assets.dart';
 
 class NearHotelsWidget extends StatelessWidget {
-  const NearHotelsWidget({super.key});
+  final List<NearbyHotels> hotels;
+
+  const NearHotelsWidget({super.key, required this.hotels});
 
   @override
   Widget build(BuildContext context) {
@@ -25,25 +29,14 @@ class NearHotelsWidget extends StatelessWidget {
         ),
         SizedBox(
           height: 250.h,
-          child: ListView.builder(
+          child: ListView.separated(
             scrollDirection: .horizontal,
             itemCount: 5,
             itemBuilder: (context, index) {
-              return Column(
-                crossAxisAlignment: .start,
-                children: [
-                  Expanded(child: buildImage()),
-                  Text(
-                    "Egg Benedict with Capsicum",
-                    style: textTheme.headlineSmall,
-                  ),
-                  getLableRow(
-                    svgUrl: Assets.svgs.locationNorth.path,
-                    text: "adfadf",
-                  ),
-                  getLableRow(svgUrl: Assets.svgs.vector1.path, text: "adfadf"),
-                ],
-              ).phM;
+              return ShowCaseCardWidget(hotel: hotels[index]);
+            },
+            separatorBuilder: (BuildContext context, int index) {
+              return 20.horizontalSpace;
             },
           ),
         ),

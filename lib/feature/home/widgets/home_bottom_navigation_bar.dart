@@ -6,7 +6,14 @@ import 'package:restaurant_app/values/theme/app_colors.dart';
 import '../../../generated/assets.dart';
 
 class HomeBottomNavigationBar extends StatefulWidget {
-  const HomeBottomNavigationBar({super.key});
+  final ValueChanged<int> onChage;
+  final int initialIndex;
+
+  const HomeBottomNavigationBar({
+    super.key,
+    required this.initialIndex,
+    required this.onChage,
+  });
 
   @override
   State<HomeBottomNavigationBar> createState() =>
@@ -14,6 +21,14 @@ class HomeBottomNavigationBar extends StatefulWidget {
 }
 
 class _HomeBottomNavigationBarState extends State<HomeBottomNavigationBar> {
+  late int selectedIndex;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    selectedIndex = widget.initialIndex;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,20 +41,43 @@ class _HomeBottomNavigationBarState extends State<HomeBottomNavigationBar> {
           child: Row(
             mainAxisSize: .max,
             mainAxisAlignment: .spaceAround,
-            children: [
-              IconButton(onPressed: () {}, icon: SvgPicture.asset(Assets.svgs.house.path)),
-              IconButton(onPressed: () {}, icon: SvgPicture.asset(Assets.svgs.tag.path)),
-              FloatingActionButton(
-                onPressed: () {},
-                backgroundColor: Theme.of(context).colorScheme.primary,
-                child: Icon(Icons.shopping_cart, color: AppColors.white),
-              ),
-              IconButton(onPressed: () {}, icon:SvgPicture.asset(Assets.svgs.heart.path)),
-              IconButton(onPressed: () {}, icon:SvgPicture.asset(Assets.svgs.person.path)),
-            ],
+            children: bottomAppBarItem(context),
           ),
         ),
       ],
     );
+  }
+
+  void handleIcon(int index) {
+    setState(() {
+      selectedIndex = index;
+    });
+    widget.onChage(selectedIndex);
+  }
+
+  List<Widget> bottomAppBarItem(BuildContext context) {
+    return [
+      IconButton(
+        onPressed: () => handleIcon(0),
+        icon: SvgPicture.asset(Assets.svgs.house.path),
+      ),
+      IconButton(
+        onPressed: () => handleIcon(1),
+        icon: SvgPicture.asset(Assets.svgs.tag.path),
+      ),
+      FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        child: Icon(Icons.shopping_cart, color: AppColors.white),
+      ),
+      IconButton(
+        onPressed: () => handleIcon(2),
+        icon: SvgPicture.asset(Assets.svgs.heart.path),
+      ),
+      IconButton(
+        onPressed: () => handleIcon(3),
+        icon: SvgPicture.asset(Assets.svgs.person.path),
+      ),
+    ];
   }
 }

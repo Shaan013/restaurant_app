@@ -29,6 +29,7 @@ class $AssetsSvgsGen {
     'assets/svgs/google_logo.svg',
   );
   final SvgGenImage heart = const SvgGenImage('assets/svgs/heart.svg');
+  final SvgGenImage heartFill = const SvgGenImage('assets/svgs/heart_fill.svg');
   final SvgGenImage house = const SvgGenImage('assets/svgs/house.svg');
   final SvgGenImage location = const SvgGenImage('assets/svgs/location.svg');
   final SvgGenImage locationNorth = const SvgGenImage(

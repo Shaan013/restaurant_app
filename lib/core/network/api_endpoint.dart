@@ -3,5 +3,6 @@ class ApiEndpoint {
   static const String login = "login";
   static const String logout = "logout";
   static const String home = "home";
+  static const String food ="foods";
 
 }

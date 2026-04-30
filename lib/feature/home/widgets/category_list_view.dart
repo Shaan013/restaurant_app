@@ -62,7 +62,7 @@ class CategoryListView extends StatelessWidget {
                 // ),
                 child: AppNetworkImage(
                   url:
-                      "https://tse2.mm.bing.net/th/id/OIP.dJRgtbtpJ827mCUmbDVeBAHaJ4?rs=1&pid=ImgDetMain&o=7&rm=3",
+                      cat.imageUrl,
                 ),
               ),
               Text(cat.name ?? "Unkonw"),
