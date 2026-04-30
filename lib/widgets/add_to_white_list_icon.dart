@@ -6,7 +6,7 @@ import '../values/theme/app_colors.dart';
 
 Widget addToWhiteListIcon({bool isSelected = false}) {
   return CircleAvatar(
-    backgroundColor: isSelected ? AppColors.orange : AppColors.white,
+    backgroundColor: isSelected ? AppColors.orange : AppColors.deepGray,
     child: SvgPicture.asset(Assets.svgs.heartFill.path),
   );
 }

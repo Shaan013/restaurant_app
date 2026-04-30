@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:restaurant_app/core/network/base_response.dart';
+import 'package:restaurant_app/data/local_data/share_prefrence_info.dart';
 import 'package:restaurant_app/data/models/requasts/Login_model.dart';
 import 'package:restaurant_app/data/models/responses/User_model.dart';
 import '../../core/exceptions/dio_exception_util.dart';
@@ -11,15 +12,15 @@ import '../../core/network/api_client.dart';
 class AuthRepository {
   final ApiClient _apiClient = locator<ApiClient>();
 
-  bool chackSussece(String? code){
+  bool chackSussece(String? code) {
     if (code == 200.toString()) {
       print("i am in 200");
+      locator<SharePrefrenceInfo>().setLogedIn();
       return true;
     } else {
       print("i am in wrong place");
       return false;
     }
-
   }
 
   Future<bool> checkLogin(LoginModel loginInfo) async {

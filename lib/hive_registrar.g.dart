@@ -4,15 +4,18 @@
 
 import 'package:hive_ce/hive_ce.dart';
 import 'package:restaurant_app/core/db/hive/model_address.dart';
+import 'package:restaurant_app/core/db/hive/white_list.dart';
 
 extension HiveRegistrar on HiveInterface {
   void registerAdapters() {
     registerAdapter(ModelAddressAdapter());
+    registerAdapter(WhiteListAdapter());
   }
 }
 
 extension IsolatedHiveRegistrar on IsolatedHiveInterface {
   void registerAdapters() {
     registerAdapter(ModelAddressAdapter());
+    registerAdapter(WhiteListAdapter());
   }
 }

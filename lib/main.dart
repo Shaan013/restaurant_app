@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'core/locator/main_locator.dart';
+import 'data/local_data/share_prefrence_info.dart';
 import 'generated/l10n.dart';
 import 'router/app_route.dart';
 import 'values/theme/app_theme.dart';
@@ -13,7 +14,7 @@ import 'core/db/shared_pref/shared_pref_service.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   // Initialize Hive
   await HiveService.init();
 
@@ -22,7 +23,7 @@ Future<void> main() async {
 
   // Setup Locator
   await setupLocator();
-
+  // locator<SharePrefrenceInfo>().setLogedOut();
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
           ],
+
           supportedLocales: S.delegate.supportedLocales,
           locale: const Locale('en'),
           debugShowCheckedModeBanner: false,

@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:restaurant_app/router/auth_gard.dart';
 
 import '../core/locator/main_locator.dart';
 import '../feature/auth/view/login_page.dart';
@@ -15,8 +16,9 @@ class AppRoute extends RootStackRouter {
 
   @override
   final List<AutoRoute> routes = [
-    AutoRoute(page:LoginRoute.page , initial: true),
-    AutoRoute(page:HomeRoute.page),
+    AutoRoute(page:LoginRoute.page , path: "/login"),
+    AutoRoute(page:HomeRoute.page ,initial:  true ,path: "/",guards: [AuthGard()]),
+
     AutoRoute(page:FoodDetailRoute.page),
     // AutoRoute(page: ProfileDetailRoute.page),
     // AutoRoute(page: AddUserRoute.page),
