@@ -1,7 +1,9 @@
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hive_ce/hive.dart';
+import 'package:hive_ce_flutter/adapters.dart';
+import 'package:restaurant_app/core/db/hive/hive_service.dart';
 import 'package:restaurant_app/data/models/responses/Food.dart';
 import 'package:restaurant_app/data/models/responses/Food_model.dart';
 import 'package:restaurant_app/data/store/food_detail_store.dart';
@@ -53,8 +55,10 @@ class _FoodDetailPageState extends State<FoodDetailPage> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          buildTopPart(context, food.imageUrl ?? S.of(context).lblUnknow),
-          buildBottomPart(context, food).pAllM,
+          buildTopPart(context, food.imageUrl ?? S
+              .of(context)
+              .lblUnknow),
+          buildBottomPart(context, food),
         ],
       ),
     );
@@ -68,50 +72,73 @@ class _FoodDetailPageState extends State<FoodDetailPage> {
       children: [
         SingleChildScrollView(
           scrollDirection: .horizontal,
-          child: Row(
-            mainAxisSize: .max,
-            mainAxisAlignment: .start,
-            spacing: 8.w,
-            children: tegList
-                .map((item) => buildChip(context, tag: item))
-                .toList(),
+          child: Column(
+            children: [
+              20.verticalSpace,
+              Row(
+                mainAxisSize: .max,
+                mainAxisAlignment: .start,
+                spacing: 8.w,
+                children: tegList
+                    .map((item) => buildChip(context, tag: item))
+                    .toList(),
+              ).phM,
+            ],
           ),
         ),
         Row(
           children: [
             Expanded(
               child: Text(
-                food.title ??  S.of(context).lblUnknow,
-                style: TextTheme.of(context).headlineMedium,
+                food.title ?? S
+                    .of(context)
+                    .lblUnknow,
+                style: TextTheme
+                    .of(context)
+                    .headlineMedium,
                 maxLines: 2,
               ),
             ),
-            addToWhiteListIcon(isSelected: true),
+            GestureDetector(child: addToWhiteListIcon(isSelected: true)),
           ],
-        ),
+        ).phM,
         Row(
           spacing: 8.w,
           children: [
             getLableRow(
               svgUrl: Assets.svgs.locationNorth.path,
-              text: "${food.distance}}${S.of(context).smsAwayFromYou}",
-              textStyle: TextTheme.of(context).titleMedium,
+              text: "${food.distance}}${S
+                  .of(context)
+                  .smsAwayFromYou}",
+              textStyle: TextTheme
+                  .of(context)
+                  .titleMedium,
             ),
             getLableRow(
               svgUrl: Assets.svgs.vector1.path,
-              text: "${food.rating} (${food.reviewsCount}${S.of(context).smsReviews}",
-              textStyle: TextTheme.of(context).titleMedium,
+              text: "${food.rating} (${food.reviewsCount}${S
+                  .of(context)
+                  .smsReviews}",
+              textStyle: TextTheme
+                  .of(context)
+                  .titleMedium,
             ),
           ],
-        ),
+        ).phM,
         Text(
-          "\$ ${food.price}${S.of(context).tegPerPlate}",
-          style: TextTheme.of(context).headlineSmall,
-        ),
+          "\$ ${food.price}${S
+              .of(context)
+              .tegPerPlate}",
+          style: TextTheme
+              .of(context)
+              .headlineSmall,
+        ).phM,
 
-        buildtabs(dic: food.description ??  S.of(context).lblUnknow),
+        buildtabs(dic: food.description ?? S
+            .of(context)
+            .lblUnknow),
         RecommendedWidget(
-          recList: food.recommended ??[],
+          recList: food.recommended ?? [],
         ),
       ],
     );
@@ -119,7 +146,7 @@ class _FoodDetailPageState extends State<FoodDetailPage> {
 
   SizedBox buildtabs({required String dic}) {
     return SizedBox(
-      height: 250.h,
+      height: 100.h,
       child: DefaultTabController(
         length: 2,
         child: Column(
@@ -127,8 +154,12 @@ class _FoodDetailPageState extends State<FoodDetailPage> {
           children: [
             TabBar(
               tabs: [
-                Tab(text: S.of(context).titleDescription),
-                Tab(text: S.of(context).titleRreviewsOthers),
+                Tab(text: S
+                    .of(context)
+                    .titleDescription),
+                Tab(text: S
+                    .of(context)
+                    .titleRreviewsOthers),
               ],
             ),
             Expanded(
@@ -137,7 +168,7 @@ class _FoodDetailPageState extends State<FoodDetailPage> {
                   Text(dic, maxLines: 7),
                   Center(child: Text("data2")),
                 ],
-              ),
+              ).phM,
             ),
           ],
         ),
@@ -152,7 +183,9 @@ class _FoodDetailPageState extends State<FoodDetailPage> {
         color: AppColors.grey.withAlpha(40),
         borderRadius: AppBorderRadius.xxxl,
       ),
-      child: Text(tag, style: TextTheme.of(context).titleMedium),
+      child: Text(tag, style: TextTheme
+          .of(context)
+          .titleMedium),
     );
   }
 
@@ -177,8 +210,14 @@ class _FoodDetailPageState extends State<FoodDetailPage> {
 
   CircleAvatar buildicons(BuildContext context, {required IconData icons}) {
     return CircleAvatar(
-      backgroundColor: Theme.of(context).colorScheme.surface,
-      child: Icon(icons, color: Theme.of(context).colorScheme.outline),
+      backgroundColor: Theme
+          .of(context)
+          .colorScheme
+          .surface,
+      child: Icon(icons, color: Theme
+          .of(context)
+          .colorScheme
+          .outline),
     );
   }
 }

@@ -9,6 +9,7 @@ import 'package:restaurant_app/widgets/app_network_image.dart';
 
 import '../../../data/models/responses/NearbyHotels.dart';
 import '../../../generated/assets.dart';
+import '../../../generated/l10n.dart';
 
 class NearHotelsWidget extends StatelessWidget {
   final List<NearbyHotels> hotels;
@@ -23,7 +24,7 @@ class NearHotelsWidget extends StatelessWidget {
       children: [
         buildTitle(textTheme),
         Text(
-          "Exclusive restaurants deals near you",
+          S.of(context).titleExclusiveRestaurantsDealsNearYou,
           style: textTheme.bodyLarge,
           maxLines: 1,
         ),

@@ -5,6 +5,7 @@ import 'package:restaurant_app/data/repository/user_repository.dart';
 import 'package:restaurant_app/router/app_route.dart';
 
 import '../../../data/models/requasts/Login_model.dart';
+import '../../../generated/l10n.dart';
 import '../../../widgets/app_overlay_loader.dart';
 import '../../../widgets/message_snack_bar.dart';
 
@@ -26,20 +27,19 @@ class LoginController {
     if (!formKey.currentState!.validate()) return;
 
     try {
-      AppOverlayLoader.show(context, message: "Adding User...");
-      print("on loging");
+      AppOverlayLoader.show(context, message: S.current.smsLoginUser);
       final res = await loginRepository.checkLogin(getModel());
       if (res == true) {
         showMessage(
           context,
-          "you login in successfully ",
+          S.of(context).smsYouLoginInSuccessfully,
           type: MessageType.success,
         );
         context.router.replace(HomeRoute());
       } else {
         showMessage(
           context,
-          "something want wrong please try again ",
+          S.of(context).smsSomethingWantWrongPleaseTryAgain,
           type: MessageType.warning,
         );
       }

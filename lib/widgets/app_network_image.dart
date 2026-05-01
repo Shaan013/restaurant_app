@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../generated/l10n.dart';
+
 class AppNetworkImage extends StatelessWidget {
   final String? url;
   final double? aspectRatio;
@@ -39,7 +41,7 @@ class AppNetworkImage extends StatelessWidget {
             ),
           );
         },
-        url ?? "sdfa",
+        url ??S.current.lblUnknow,
         fit: .cover,
         headers: const {
           'User-Agent':

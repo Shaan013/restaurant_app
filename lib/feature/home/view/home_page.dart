@@ -22,6 +22,7 @@ import 'package:restaurant_app/widgets/recommended_widget.dart';
 
 import '../../../data/local_data/share_prefrence_info.dart';
 import '../../../generated/assets.dart';
+import '../../../generated/l10n.dart';
 
 @RoutePage()
 class HomePage extends StatefulWidget {
@@ -52,7 +53,7 @@ class _HomePageState extends State<HomePage> {
         index: pageIndex,
         children: [
           HomePageWidget(),
-          ShowFood(recList: HiveService.getListOfCart(), title: "cart List"),
+          ShowFood(recList: HiveService.getListOfCart(), title: S.of(context).headingCartList),
           ShowFood(recList: HiveService.getListOfWhish()),
           Center(
             child: ElevatedButton(
@@ -60,7 +61,7 @@ class _HomePageState extends State<HomePage> {
                 final log = LogoutConroller();
                 log.handleTryLogout(context);
               },
-              child: Text(" Log out"),
+              child: Text(S.of(context).smsLogOut),
             ),
           ),
         ],

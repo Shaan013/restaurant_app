@@ -23,21 +23,21 @@ class _LoginWidgetState extends State<LoginWidget> {
   late final LoginController _loginController;
   final List<Map<String, dynamic>> diffrentLoingMap = [
     {
-      "name": "FaceBook",
-      "svgUrl": Assets.svgs.facebookLogo.path,
-      "color": AppColors.blue,
+      S.current.tegName: S.current.lblFacebook,
+      S.current.tagSvgurl: Assets.svgs.facebookLogo.path,
+      S.current.color: AppColors.blue,
     },
     {
-      "name": "Google",
-      "svgUrl": Assets.svgs.googleLogo.path,
-      "color": AppColors.white,
-      "styleColor": AppColors.grey,
+      S.current.tegName: S.current.lblGoogle,
+      S.current.tagSvgurl: Assets.svgs.googleLogo.path,
+      S.current.color: AppColors.white,
+      S.current.tagStylecolor: AppColors.grey,
     },
 
     {
-      "name": "Apple",
-      "svgUrl": Assets.svgs.appleLogo.path,
-      "color": AppColors.grey,
+      S.current.tegName: S.current.lblApple,
+      S.current.tagSvgurl: Assets.svgs.appleLogo.path,
+      S.current.color: AppColors.grey,
     },
   ];
 
@@ -64,7 +64,7 @@ class _LoginWidgetState extends State<LoginWidget> {
           ),
           Text.rich(
             TextSpan(
-              text: "Don’t have an account? ",
+              text: S.of(context).strDontHaveAnAccount,
               style: textTheme.bodyLarge,
               children: [
                 WidgetSpan(
@@ -72,7 +72,10 @@ class _LoginWidgetState extends State<LoginWidget> {
                     onTap: () {
                       context.router.replace(LoginRoute(isSigningPage: true));
                     },
-                    child: Text("Signup Now", style: textTheme.titleLarge),
+                    child: Text(
+                      S.of(context).lblSignupNow,
+                      style: textTheme.titleLarge,
+                    ),
                   ),
                 ),
               ],
@@ -89,17 +92,24 @@ class _LoginWidgetState extends State<LoginWidget> {
                   keyboardType: .emailAddress,
                   controller: _loginController.emailController,
                   validator: (value) => ValidationHelper.validateEmail(value),
-                  decoration: AppInputDecoration.auth(prefixText: S.of(context).lblEmail),
+                  decoration: AppInputDecoration.auth(
+                    prefixText: S.of(context).lblEmail,
+                  ),
                 ),
                 TextFormField(
                   textInputAction: .done,
                   controller: _loginController.passwordController,
                   validator: (value) => ValidationHelper.noEmpty(value),
-                  decoration: AppInputDecoration.auth(prefixText: S.of(context).lblPassword),
+                  decoration: AppInputDecoration.auth(
+                    prefixText: S.of(context).lblPassword,
+                  ),
                 ),
                 GestureDetector(
                   onTap: () {},
-                  child: Text(S.of(context).lblForgotPassword, style: textTheme.bodyLarge),
+                  child: Text(
+                    S.of(context).lblForgotPassword,
+                    style: textTheme.bodyLarge,
+                  ),
                 ),
               ],
             ),
@@ -110,15 +120,22 @@ class _LoginWidgetState extends State<LoginWidget> {
             style: textTheme.labelLarge,
             onTap: () => _loginController.handleTrySubmit(context),
           ),
-          Center(child: Text("Or Continue", style: textTheme.titleMedium)),
+          Center(
+            child: Text(
+              S.of(context).lblorContinue,
+              style: textTheme.titleMedium,
+            ),
+          ),
           ...diffrentLoingMap.map((item) {
             return fullWidthButton(
-              text: item["name"],
-              color: item['color'],
-              label: SvgPicture.asset(item['svgUrl']),
-              style: item["styleColor"] == null
+              text: item[S.current.tegName],
+              color: item[S.current.color],
+              label: SvgPicture.asset(item[S.current.tagSvgurl]),
+              style: item[S.current.tagStylecolor] == null
                   ? textTheme.labelLarge
-                  : textTheme.labelLarge!.copyWith(color: item['styleColor']),
+                  : textTheme.labelLarge!.copyWith(
+                      color: item[S.current.tagStylecolor],
+                    ),
             ).pvS;
           }),
         ],

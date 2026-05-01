@@ -19,7 +19,9 @@ class FoodPageObserver extends StatelessWidget {
     return Observer(
       builder: (context) {
         if (modelStore.hasError) {
-          debugPrint("error message  : ${modelStore.errorMessage}");
+          debugPrint(
+            "${S.of(context).smsErrorMessage}  ${modelStore.errorMessage}",
+          );
           return Center(child: Text(modelStore.errorMessage.toString()));
         }
         if (modelStore.isLoading) {

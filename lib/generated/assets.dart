@@ -14,6 +14,7 @@ class $AssetsImagesGen {
   const $AssetsImagesGen();
 
   final AssetGenImage pizza = const AssetGenImage('assets/images/pizza.png');
+  final AssetGenImage shaan = const AssetGenImage('assets/images/shaan.png');
 }
 
 class $AssetsSvgsGen {
@@ -22,19 +23,27 @@ class $AssetsSvgsGen {
   final SvgGenImage vector1 = const SvgGenImage('assets/svgs/Vector (1).svg');
   final SvgGenImage appleLogo = const SvgGenImage('assets/svgs/apple_logo.svg');
   final SvgGenImage facebookLogo = const SvgGenImage(
-    'assets/svgs/facebook_logo.svg',
-  );
+      'assets/svgs/facebook_logo.svg');
   final SvgGenImage filter = const SvgGenImage('assets/svgs/filter.svg');
   final SvgGenImage googleLogo = const SvgGenImage(
-    'assets/svgs/google_logo.svg',
-  );
+      'assets/svgs/google_logo.svg');
   final SvgGenImage heart = const SvgGenImage('assets/svgs/heart.svg');
   final SvgGenImage heartFill = const SvgGenImage('assets/svgs/heart_fill.svg');
+  final SvgGenImage heartUnselected = const SvgGenImage(
+      'assets/svgs/heart_unselected.svg');
+  final SvgGenImage home = const SvgGenImage('assets/svgs/home.svg');
+  final SvgGenImage homeUnselected = const SvgGenImage(
+      'assets/svgs/home_unselected.svg');
   final SvgGenImage house = const SvgGenImage('assets/svgs/house.svg');
+  final SvgGenImage label = const SvgGenImage('assets/svgs/label.svg');
+  final SvgGenImage labelUnselected = const SvgGenImage(
+      'assets/svgs/label_unselected.svg');
   final SvgGenImage location = const SvgGenImage('assets/svgs/location.svg');
   final SvgGenImage locationNorth = const SvgGenImage(
-    'assets/svgs/location_north.svg',
-  );
+      'assets/svgs/location_north.svg');
+  final SvgGenImage people = const SvgGenImage('assets/svgs/people.svg');
+  final SvgGenImage peopleUnselected = const SvgGenImage(
+      'assets/svgs/people_unselected.svg');
   final SvgGenImage person = const SvgGenImage('assets/svgs/person.svg');
   final SvgGenImage tag = const SvgGenImage('assets/svgs/tag.svg');
 }
@@ -43,6 +52,7 @@ class AssetGenImage {
   const AssetGenImage(this._assetName, {this.size, this.flavors = const {}});
 
   final String _assetName;
+
 
   final Size? size;
   final Set<String> flavors;
@@ -100,8 +110,15 @@ class AssetGenImage {
     );
   }
 
-  ImageProvider provider({AssetBundle? bundle, String? package}) {
-    return AssetImage(_assetName, bundle: bundle, package: package);
+  ImageProvider provider({
+    AssetBundle? bundle,
+    String? package,
+  }) {
+    return AssetImage(
+      _assetName,
+      bundle: bundle,
+      package: package,
+    );
   }
 
   Widget custom({
@@ -179,3 +196,4 @@ class SvgGenImage {
 
   String get keyName => _assetName;
 }
+

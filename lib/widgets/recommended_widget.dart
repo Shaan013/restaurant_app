@@ -17,6 +17,7 @@ import 'package:restaurant_app/widgets/show_case_card_widget.dart';
 import '../data/models/responses/Food.dart';
 import '../data/models/responses/NearbyHotels.dart';
 import '../data/models/responses/Recommended.dart';
+import '../generated/l10n.dart';
 import 'cart_product_quantity_widget.dart';
 
 class RecommendedWidget extends StatefulWidget {
@@ -97,7 +98,7 @@ class _RecommendedWidgetState extends State<RecommendedWidget> {
                       ).headlineSmall!.copyWith(color: AppColors.orange),
                       children: [
                         TextSpan(
-                          text: " /per Plate",
+                          text: S.of(context).lblPerPlate,
                           style: TextTheme.of(context).bodyLarge,
                         ),
                       ],

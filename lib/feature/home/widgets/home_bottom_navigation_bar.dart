@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:restaurant_app/values/extensions/app_padding_ext.dart';
 import 'package:restaurant_app/values/theme/app_colors.dart';
 
 import '../../../generated/assets.dart';
+import '../../../generated/l10n.dart';
 
 class HomeBottomNavigationBar extends StatefulWidget {
   final ValueChanged<int> onChage;
@@ -29,6 +31,25 @@ class _HomeBottomNavigationBarState extends State<HomeBottomNavigationBar> {
     super.initState();
     selectedIndex = widget.initialIndex;
   }
+
+  final List<Map<String, dynamic>> iconList = [
+    {
+      "Selected": Assets.svgs.home.path,
+      "Unselected": Assets.svgs.homeUnselected.path,
+    },
+    {
+      "Selected": Assets.svgs.label.path,
+      "Unselected": Assets.svgs.labelUnselected.path,
+    },
+    {
+      "Selected": Assets.svgs.heart.path,
+      "Unselected": Assets.svgs.heartUnselected.path,
+    },
+    {
+      "Selected": Assets.svgs.people.path,
+      "Unselected": Assets.svgs.peopleUnselected.path,
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -59,11 +80,11 @@ class _HomeBottomNavigationBarState extends State<HomeBottomNavigationBar> {
     return [
       IconButton(
         onPressed: () => handleIcon(0),
-        icon: SvgPicture.asset(Assets.svgs.house.path),
+        icon: SvgPicture.asset(getIcon(0)).pAllS,
       ),
       IconButton(
         onPressed: () => handleIcon(1),
-        icon: SvgPicture.asset(Assets.svgs.tag.path),
+        icon: SvgPicture.asset(getIcon(1)).pAllS,
       ),
       FloatingActionButton(
         onPressed: () {},
@@ -72,12 +93,22 @@ class _HomeBottomNavigationBarState extends State<HomeBottomNavigationBar> {
       ),
       IconButton(
         onPressed: () => handleIcon(2),
-        icon: SvgPicture.asset(Assets.svgs.heart.path),
+        icon: SvgPicture.asset(getIcon(2)).pAllS,
       ),
       IconButton(
         onPressed: () => handleIcon(3),
-        icon: SvgPicture.asset(Assets.svgs.person.path),
+        icon: SvgPicture.asset(getIcon(3)).pAllS,
       ),
     ];
+  }
+
+  String getIcon(int id) {
+    if (selectedIndex == id) {
+      final res = iconList[id]["Selected"];
+      print("object : uer of res  ${res}");
+      return res;
+    } else {
+      return iconList[id]["Unselected"];
+    }
   }
 }

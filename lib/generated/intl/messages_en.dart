@@ -41,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Card has expired"),
         "cardName": MessageLookupByLibrary.simpleMessage("Card Name"),
         "cardNumber": MessageLookupByLibrary.simpleMessage("Card Number"),
+        "color": MessageLookupByLibrary.simpleMessage("color"),
         "confPassword":
             MessageLookupByLibrary.simpleMessage("Confirm Password"),
         "connectTimeout":
@@ -87,6 +88,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Forgot Password?"),
         "gallery": MessageLookupByLibrary.simpleMessage("Gallery"),
         "getStarted": MessageLookupByLibrary.simpleMessage("Get Started"),
+        "hadingFoodGroceriesDrink": MessageLookupByLibrary.simpleMessage(
+            "Food , groceries , drink ..."),
+        "headingCartList": MessageLookupByLibrary.simpleMessage("Cart List"),
+        "headingWhiesList": MessageLookupByLibrary.simpleMessage("whies list"),
         "headinggetStartedWithLobster":
             MessageLookupByLibrary.simpleMessage("Get Started with Lobster"),
         "hello": MessageLookupByLibrary.simpleMessage("Hello!"),
@@ -134,12 +139,29 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Please enter OTP"),
         "kPleaseEnterValidOtp":
             MessageLookupByLibrary.simpleMessage("Please enter valid OTP"),
+        "lblAlreadyHaveAnAccount":
+            MessageLookupByLibrary.simpleMessage("Already have an account?"),
+        "lblApple": MessageLookupByLibrary.simpleMessage("Apple"),
         "lblEmail": MessageLookupByLibrary.simpleMessage("Email"),
+        "lblEnterEmail": MessageLookupByLibrary.simpleMessage("Enter Email"),
+        "lblEnterPassword":
+            MessageLookupByLibrary.simpleMessage("Enter Password"),
+        "lblEnterPhoneNumber":
+            MessageLookupByLibrary.simpleMessage("Enter Phone Number"),
+        "lblFacebook": MessageLookupByLibrary.simpleMessage("FaceBook"),
         "lblForgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot Password?"),
+        "lblFullName": MessageLookupByLibrary.simpleMessage("Full Name"),
+        "lblGoogle": MessageLookupByLibrary.simpleMessage("Google"),
         "lblHomePage": MessageLookupByLibrary.simpleMessage("Home Page"),
         "lblPassword": MessageLookupByLibrary.simpleMessage("Password"),
+        "lblPerPlate": MessageLookupByLibrary.simpleMessage("/per Plate"),
+        "lblSelected": MessageLookupByLibrary.simpleMessage("selected"),
+        "lblSignIn": MessageLookupByLibrary.simpleMessage("Sign in"),
+        "lblSignupNow": MessageLookupByLibrary.simpleMessage("Signup Now"),
         "lblUnknow": MessageLookupByLibrary.simpleMessage("unknow"),
+        "lblUnselected": MessageLookupByLibrary.simpleMessage("unselected"),
+        "lblorContinue": MessageLookupByLibrary.simpleMessage("Or Continue"),
         "logIn": MessageLookupByLibrary.simpleMessage("Log in"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "loginToContinue":
@@ -198,8 +220,26 @@ class MessageLookup extends MessageLookupByLibrary {
         "signInWith": MessageLookupByLibrary.simpleMessage("Sign In With"),
         "signUp": MessageLookupByLibrary.simpleMessage("Sign up"),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),
+        "slbLoginNow": MessageLookupByLibrary.simpleMessage("Login Now"),
         "smsAwayFromYou": MessageLookupByLibrary.simpleMessage("away from you"),
+        "smsErrorMessage":
+            MessageLookupByLibrary.simpleMessage("error message  :"),
+        "smsLogOut": MessageLookupByLibrary.simpleMessage("Log out"),
+        "smsLoginUser": MessageLookupByLibrary.simpleMessage("LogIn User..."),
+        "smsLogoutUser": MessageLookupByLibrary.simpleMessage("LogOut User..."),
         "smsReviews": MessageLookupByLibrary.simpleMessage("Reviews)"),
+        "smsSingInUser":
+            MessageLookupByLibrary.simpleMessage("Sing In User..."),
+        "smsSomethingWantWrongPleaseTryAgain":
+            MessageLookupByLibrary.simpleMessage(
+                "Something Want Wrong Please Try Again"),
+        "smsYouCanBuy": MessageLookupByLibrary.simpleMessage("you can buy"),
+        "smsYouLogOutSuccessfully":
+            MessageLookupByLibrary.simpleMessage("you log out successfully"),
+        "smsYouLoginInSuccessfully":
+            MessageLookupByLibrary.simpleMessage("You Login in Successfully"),
+        "smsYouSignInSuccessfully":
+            MessageLookupByLibrary.simpleMessage("You Sign in Successfully"),
         "somethingWantWrongWithData": MessageLookupByLibrary.simpleMessage(
             "something want wrong with data"),
         "somethingWentWrongPleaseTryAfterSometime":
@@ -208,9 +248,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "somethingWhenWrongPleaseTryAgain":
             MessageLookupByLibrary.simpleMessage(
                 "Something when wrong. Please try again."),
+        "strDontHaveAnAccount":
+            MessageLookupByLibrary.simpleMessage("Don’t have an account?"),
         "tNc": MessageLookupByLibrary.simpleMessage("Terms & Conditions"),
+        "tagStylecolor": MessageLookupByLibrary.simpleMessage("styleColor"),
+        "tagSvgurl": MessageLookupByLibrary.simpleMessage("svgUrl"),
+        "tegName": MessageLookupByLibrary.simpleMessage("name"),
         "tegPerPlate": MessageLookupByLibrary.simpleMessage("/per plate"),
         "titleDescription": MessageLookupByLibrary.simpleMessage("Description"),
+        "titleExclusiveRestaurantsDealsNearYou":
+            MessageLookupByLibrary.simpleMessage(
+                "Exclusive restaurants deals near you"),
         "titleRreviewsOthers":
             MessageLookupByLibrary.simpleMessage("Reviews & Others"),
         "unauthorised": MessageLookupByLibrary.simpleMessage("Unauthorised:"),

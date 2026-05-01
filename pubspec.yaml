@@ -52,6 +52,7 @@ dependencies:
   fluttertoast: ^9.0.0
   flutter_svg: ^2.0.10
   pretty_dio_logger: ^1.4.0
+  flutter_native_splash: ^2.4.7
 
 
 dev_dependencies:
@@ -119,3 +120,17 @@ flutter:
 
 flutter_intl:
   enabled: true
+
+flutter_native_splash:
+    color: "#ffffff"
+    image: assets/images/shaan.png
+    android: true
+    ios: true
+    fullscreen: true
+
+    # Fix for Android 12+ black screen
+    android_12:
+      image: assets/images/shaan.png
+      icon_background_color: "#ffffff"
+      # Optional: if you want white bg even if the phone is in Dark Mode
+      color: "#ffffff"

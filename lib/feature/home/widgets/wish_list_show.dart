@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../core/db/hive/hive_service.dart';
 import '../../../data/models/responses/Recommended.dart';
+import '../../../generated/l10n.dart';
 import '../../../widgets/recommended_widget.dart';
 
 class ShowFood extends StatelessWidget {
@@ -16,8 +17,8 @@ class ShowFood extends StatelessWidget {
       child: SingleChildScrollView(
         child: RecommendedWidget(
           recList:recList,
-          title:title?? "whish list",
-          subtitle: subtitle??"you can buy",
+          title:title?? S.of(context).headingWhiesList,
+          subtitle: subtitle??S.of(context).smsYouCanBuy,
         ),
       ),
     );

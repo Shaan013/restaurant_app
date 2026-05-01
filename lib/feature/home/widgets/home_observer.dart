@@ -19,7 +19,7 @@ class HomeObserver extends StatelessWidget {
     return Observer(
       builder: (context) {
         if (homeStore.hasError) {
-          debugPrint("error message  : ${homeStore.errorMessage}");
+          debugPrint("${S.current.smsErrorMessage} ${homeStore.errorMessage}");
           return Center(child: Text(homeStore.errorMessage.toString()));
         }
         if (homeStore.isLoading) {

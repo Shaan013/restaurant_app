@@ -16,7 +16,6 @@ class AuthRepository {
   bool chackSussece(String? code) {
     if (code == 200.toString()) {
       print("i am in 200");
-      locator<SharePrefrenceInfo>().setLogedIn();
       return true;
     } else {
       print("i am in wrong place");
@@ -28,6 +27,9 @@ class AuthRepository {
     try {
       final BaseResponse<UserModel> result = await _apiClient.login(loginInfo);
       print("result.code  ${result.code}");
+      if (result.code == 200.toString()) {
+        locator<SharePrefrenceInfo>().setLogedIn(result.data!.id!);
+      }
       return chackSussece(result.code);
     } on DioException catch (e) {
       log("message  : ${e.message}");
@@ -47,7 +49,9 @@ class AuthRepository {
         user,
       );
       print("result.code  ${result.code} ${result.code.runtimeType}");
+
       if (result.code == 200.toString()) {
+        locator<SharePrefrenceInfo>().setLogedIn(result.data!.id!);
         print("i am in 200");
         return true;
       } else {
@@ -66,11 +70,15 @@ class AuthRepository {
     }
   }
 
-  Future<bool> logOut(int id) async {
+  Future<bool> logOut() async {
     try {
+      final int uid = locator<SharePrefrenceInfo>().getId()!;
       final BaseResponse<dynamic> result = await _apiClient.logOut(
-        LogoutModel(userId: id),
+        LogoutModel(userId: uid),
       );
+      if (result.code == 200.toString()) {
+        locator<SharePrefrenceInfo>().setLogedOut();
+      }
       return chackSussece(result.code);
     } on DioException catch (e) {
       log("message  : ${e.message}");

@@ -52,7 +52,7 @@ class _SignupWidgetState extends State<SignupWidget> {
           ),
           Text.rich(
             TextSpan(
-              text: "Already have an account? ",
+              text: S.of(context).lblAlreadyHaveAnAccount,
               style: texttheme.bodyLarge,
               children: [
                 WidgetSpan(
@@ -60,7 +60,7 @@ class _SignupWidgetState extends State<SignupWidget> {
                     onTap: () {
                       context.router.replace(LoginRoute(isSigningPage: false));
                     },
-                    child: Text("Login Now", style: texttheme.titleLarge),
+                    child: Text(S.of(context).slbLoginNow, style: texttheme.titleLarge),
                   ),
                 ),
               ],
@@ -76,14 +76,14 @@ class _SignupWidgetState extends State<SignupWidget> {
                   textInputAction: .next,
                   validator: (value) => ValidationHelper.noEmpty(value),
                   controller: loginConttroler.fullNameController,
-                  decoration: AppInputDecoration.auth(prefixText: "Full Name "),
+                  decoration: AppInputDecoration.auth(prefixText: S.of(context).lblFullName),
                 ),
                 TextFormField(
                   textInputAction: .next,
                   validator: (value) => ValidationHelper.validateEmail(value),
                   controller: loginConttroler.emailController,
                   decoration: AppInputDecoration.auth(
-                    prefixText: "Enter Email",
+                    prefixText: S.of(context).lblEnterEmail,
                   ),
                 ),
                 TextFormField(
@@ -94,7 +94,7 @@ class _SignupWidgetState extends State<SignupWidget> {
                   validator: (value) => ValidationHelper.validatePhone(value),
                   controller: loginConttroler.phoneNoController,
                   decoration: AppInputDecoration.auth(
-                    prefixText: "Enter Phone Number",
+                    prefixText: S.of(context).lblEnterPhoneNumber,
                   ),
                 ),
                 TextFormField(
@@ -102,7 +102,7 @@ class _SignupWidgetState extends State<SignupWidget> {
                   validator: (value) => ValidationHelper.noEmpty(value),
                   controller: loginConttroler.passwordController,
                   decoration: AppInputDecoration.auth(
-                    prefixText: "Enter Password",
+                    prefixText: S.of(context).lblEnterPassword,
                   ),
                 ),
               ],
@@ -110,7 +110,7 @@ class _SignupWidgetState extends State<SignupWidget> {
           ),
 
           fullWidthButton(
-            text: "Sign in",
+            text: S.of(context).lblSignIn,
             color: AppColors.orange,
             onTap: () => loginConttroler.handleTrySubmit(context),
             style: texttheme.labelLarge,

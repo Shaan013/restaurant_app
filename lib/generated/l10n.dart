@@ -1309,6 +1309,346 @@ class S {
       args: [],
     );
   }
+
+  /// `Or Continue`
+  String get lblorContinue {
+    return Intl.message(
+      'Or Continue',
+      name: 'lblorContinue',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don’t have an account?`
+  String get strDontHaveAnAccount {
+    return Intl.message(
+      'Don’t have an account?',
+      name: 'strDontHaveAnAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Signup Now`
+  String get lblSignupNow {
+    return Intl.message(
+      'Signup Now',
+      name: 'lblSignupNow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `name`
+  String get tegName {
+    return Intl.message(
+      'name',
+      name: 'tegName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `svgUrl`
+  String get tagSvgurl {
+    return Intl.message(
+      'svgUrl',
+      name: 'tagSvgurl',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `color`
+  String get color {
+    return Intl.message(
+      'color',
+      name: 'color',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `FaceBook`
+  String get lblFacebook {
+    return Intl.message(
+      'FaceBook',
+      name: 'lblFacebook',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Google`
+  String get lblGoogle {
+    return Intl.message(
+      'Google',
+      name: 'lblGoogle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `styleColor`
+  String get tagStylecolor {
+    return Intl.message(
+      'styleColor',
+      name: 'tagStylecolor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Apple`
+  String get lblApple {
+    return Intl.message(
+      'Apple',
+      name: 'lblApple',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `LogIn User...`
+  String get smsLoginUser {
+    return Intl.message(
+      'LogIn User...',
+      name: 'smsLoginUser',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You Login in Successfully`
+  String get smsYouLoginInSuccessfully {
+    return Intl.message(
+      'You Login in Successfully',
+      name: 'smsYouLoginInSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Something Want Wrong Please Try Again`
+  String get smsSomethingWantWrongPleaseTryAgain {
+    return Intl.message(
+      'Something Want Wrong Please Try Again',
+      name: 'smsSomethingWantWrongPleaseTryAgain',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `LogOut User...`
+  String get smsLogoutUser {
+    return Intl.message(
+      'LogOut User...',
+      name: 'smsLogoutUser',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `you log out successfully`
+  String get smsYouLogOutSuccessfully {
+    return Intl.message(
+      'you log out successfully',
+      name: 'smsYouLogOutSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sing In User...`
+  String get smsSingInUser {
+    return Intl.message(
+      'Sing In User...',
+      name: 'smsSingInUser',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You Sign in Successfully`
+  String get smsYouSignInSuccessfully {
+    return Intl.message(
+      'You Sign in Successfully',
+      name: 'smsYouSignInSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Already have an account?`
+  String get lblAlreadyHaveAnAccount {
+    return Intl.message(
+      'Already have an account?',
+      name: 'lblAlreadyHaveAnAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login Now`
+  String get slbLoginNow {
+    return Intl.message(
+      'Login Now',
+      name: 'slbLoginNow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Full Name`
+  String get lblFullName {
+    return Intl.message(
+      'Full Name',
+      name: 'lblFullName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter Email`
+  String get lblEnterEmail {
+    return Intl.message(
+      'Enter Email',
+      name: 'lblEnterEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter Phone Number`
+  String get lblEnterPhoneNumber {
+    return Intl.message(
+      'Enter Phone Number',
+      name: 'lblEnterPhoneNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter Password`
+  String get lblEnterPassword {
+    return Intl.message(
+      'Enter Password',
+      name: 'lblEnterPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign in`
+  String get lblSignIn {
+    return Intl.message(
+      'Sign in',
+      name: 'lblSignIn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `unselected`
+  String get lblUnselected {
+    return Intl.message(
+      'unselected',
+      name: 'lblUnselected',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `selected`
+  String get lblSelected {
+    return Intl.message(
+      'selected',
+      name: 'lblSelected',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `error message  :`
+  String get smsErrorMessage {
+    return Intl.message(
+      'error message  :',
+      name: 'smsErrorMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cart List`
+  String get headingCartList {
+    return Intl.message(
+      'Cart List',
+      name: 'headingCartList',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Log out`
+  String get smsLogOut {
+    return Intl.message(
+      'Log out',
+      name: 'smsLogOut',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Food , groceries , drink ...`
+  String get hadingFoodGroceriesDrink {
+    return Intl.message(
+      'Food , groceries , drink ...',
+      name: 'hadingFoodGroceriesDrink',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Exclusive restaurants deals near you`
+  String get titleExclusiveRestaurantsDealsNearYou {
+    return Intl.message(
+      'Exclusive restaurants deals near you',
+      name: 'titleExclusiveRestaurantsDealsNearYou',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `whies list`
+  String get headingWhiesList {
+    return Intl.message(
+      'whies list',
+      name: 'headingWhiesList',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `you can buy`
+  String get smsYouCanBuy {
+    return Intl.message(
+      'you can buy',
+      name: 'smsYouCanBuy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `/per Plate`
+  String get lblPerPlate {
+    return Intl.message(
+      '/per Plate',
+      name: 'lblPerPlate',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

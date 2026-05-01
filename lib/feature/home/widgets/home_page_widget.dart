@@ -4,9 +4,8 @@ import 'package:mobx/mobx.dart';
 import 'package:restaurant_app/data/models/responses/Home_model.dart';
 import 'package:restaurant_app/data/store/home_store.dart';
 import 'package:restaurant_app/feature/home/widgets/home_observer.dart';
-
-import '../../../data/models/responses/Categories.dart';
 import '../../../generated/assets.dart';
+import '../../../generated/l10n.dart';
 import '../../../values/extensions/app_padding_ext.dart';
 import '../../../values/theme/app_border_radius.dart';
 import '../../../values/theme/app_colors.dart';
@@ -27,20 +26,20 @@ class HomePageWidget extends StatefulWidget {
 
 class _HomePageWidgetState extends State<HomePageWidget> {
   final HomeStore homeStore = HomeStore();
-  late ReactionDisposer _disposer;
+  // late ReactionDisposer _disposer;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     homeStore.featchHomeInfo();
-    _disposer = reaction((_) => homeStore.isLoading, (isLoading) {
-      if (isLoading) {
-        AppOverlayLoader.show(context, message: "featching Data");
-      } else {
-        AppOverlayLoader.hide();
-      }
-    });
+    // _disposer = reaction((_) => homeStore.isLoading, (isLoading) {
+    //   if (isLoading) {
+    //     AppOverlayLoader.show(context, message: "featching Data");
+    //   } else {
+    //     AppOverlayLoader.hide();
+    //   }
+    // });
   }
 
   @override
@@ -48,40 +47,50 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     return HomeObserver(homeStore: homeStore, showData: buildHomeUI);
   }
 
-  SingleChildScrollView buildHomeUI(HomeModel homeInfo) {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: .center,
-        children: [
-          AppBar(
-            leading: SvgPicture.asset(Assets.svgs.location.path).pAllM,
-            title: Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    homeInfo.location ?? "UNKNOW",
-                    style: TextTheme.of(context).headlineSmall,
-                  ),
+  Widget buildHomeUI(HomeModel homeInfo) {
+    return Column(
+      children: [
+        AppBar(
+          elevation: 0,
+          scrolledUnderElevation: 0,
+          backgroundColor: Theme.of(context).colorScheme.surface,
+          animateColor: false,
+          leading: SvgPicture.asset(Assets.svgs.location.path).pAllM,
+          title: Row(
+            children: [
+              Expanded(
+                child: Text(
+                  homeInfo.location ??S.current.lblUnknow,
+                  style: TextTheme.of(context).headlineSmall,
                 ),
-                Icon(Icons.keyboard_arrow_down),
+              ),
+              Icon(Icons.keyboard_arrow_down),
+            ],
+          ),
+        ),
+        Expanded(
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: .center,
+              children: [
+                buildsearchBar().phM,
+                CategoryListView(categoryList: homeInfo.categories ?? []),
+                homePageDivider(context),
+                NearHotelsWidget(hotels: homeInfo.nearbyHotels ?? []),
+                homePageDivider(context),
+                RecommendedWidget(recList: homeInfo.recommended ?? []),
               ],
             ),
           ),
-          buildsearchBar().phM,
-          CategoryListView(categoryList: homeInfo.categories ?? []),
-          homePageDivider(context),
-          NearHotelsWidget(hotels: homeInfo.nearbyHotels ?? []),
-          homePageDivider(context),
-          RecommendedWidget(recList: homeInfo.recommended ?? []),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
   TextField buildsearchBar() {
     return TextField(
       decoration: AppInputDecoration.auth(
-        prefixText: "Food , groceries , drink ... ",
+        prefixText: S.of(context).hadingFoodGroceriesDrink,
         prefixIcon: Icon(Icons.search_rounded),
         suffix: Container(
           padding: AppEdgeInsets.allS,

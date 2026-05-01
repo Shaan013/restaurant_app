@@ -5,6 +5,7 @@ import 'package:restaurant_app/values/theme/app_border_radius.dart';
 import 'package:restaurant_app/values/theme/app_colors.dart';
 import 'package:restaurant_app/values/theme/app_edge_insets.dart';
 
+import '../../../generated/l10n.dart';
 import '../../../widgets/app_network_image.dart';
 
 class CategoryListView extends StatelessWidget {
@@ -65,7 +66,7 @@ class CategoryListView extends StatelessWidget {
                       cat.imageUrl,
                 ),
               ),
-              Text(cat.name ?? "Unkonw"),
+              Text(cat.name ??S.current.lblUnknow),
             ],
           );
         },

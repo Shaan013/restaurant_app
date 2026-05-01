@@ -1,11 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:restaurant_app/core/locator/main_locator.dart';
+import 'package:restaurant_app/data/local_data/share_prefrence_info.dart';
 import 'package:restaurant_app/data/repository/user_repository.dart';
 import 'package:restaurant_app/router/app_route.dart';
 import 'package:restaurant_app/widgets/message_snack_bar.dart';
 
 import '../../../data/models/requasts/Login_model.dart';
+import '../../../generated/l10n.dart';
 import '../../../widgets/app_overlay_loader.dart';
 
 class SingInConttroler {
@@ -29,21 +31,23 @@ class SingInConttroler {
     if (!formKey.currentState!.validate()) return;
 
     try {
-      AppOverlayLoader.show(context, message: "Adding User...");
-      print("on loging");
+      AppOverlayLoader.show(context, message: S.of(context).smsSingInUser);
+      // print("on loging");
       final bool res = await signInRepository.signin(getModel());
-      print("on loging res  : ${res}");
+      // print("on loging res  : ${res}");
       if (res == true) {
+
         showMessage(
           context,
-          "you sign in successfully ",
+          S.of(context).smsYouSignInSuccessfully,
           type: MessageType.success,
         );
+
         context.router.replace(HomeRoute());
       } else {
         showMessage(
           context,
-          "something want wrong please try again ",
+          S.current.somethingWentWrongPleaseTryAfterSometime,
           type: MessageType.warning,
         );
       }
