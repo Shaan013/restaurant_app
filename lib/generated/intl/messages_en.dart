@@ -134,7 +134,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Please enter OTP"),
         "kPleaseEnterValidOtp":
             MessageLookupByLibrary.simpleMessage("Please enter valid OTP"),
+        "lblEmail": MessageLookupByLibrary.simpleMessage("Email"),
+        "lblForgotPassword":
+            MessageLookupByLibrary.simpleMessage("Forgot Password?"),
         "lblHomePage": MessageLookupByLibrary.simpleMessage("Home Page"),
+        "lblPassword": MessageLookupByLibrary.simpleMessage("Password"),
+        "lblUnknow": MessageLookupByLibrary.simpleMessage("unknow"),
         "logIn": MessageLookupByLibrary.simpleMessage("Log in"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "loginToContinue":
@@ -193,6 +198,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "signInWith": MessageLookupByLibrary.simpleMessage("Sign In With"),
         "signUp": MessageLookupByLibrary.simpleMessage("Sign up"),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),
+        "smsAwayFromYou": MessageLookupByLibrary.simpleMessage("away from you"),
+        "smsReviews": MessageLookupByLibrary.simpleMessage("Reviews)"),
         "somethingWantWrongWithData": MessageLookupByLibrary.simpleMessage(
             "something want wrong with data"),
         "somethingWentWrongPleaseTryAfterSometime":
@@ -202,6 +209,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Something when wrong. Please try again."),
         "tNc": MessageLookupByLibrary.simpleMessage("Terms & Conditions"),
+        "tegPerPlate": MessageLookupByLibrary.simpleMessage("/per plate"),
+        "titleDescription": MessageLookupByLibrary.simpleMessage("Description"),
+        "titleRreviewsOthers":
+            MessageLookupByLibrary.simpleMessage("Reviews & Others"),
         "unauthorised": MessageLookupByLibrary.simpleMessage("Unauthorised:"),
         "unknownError": MessageLookupByLibrary.simpleMessage("Unknown error"),
         "userAllowedToAccessPhotos": MessageLookupByLibrary.simpleMessage(

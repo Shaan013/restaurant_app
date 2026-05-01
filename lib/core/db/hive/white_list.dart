@@ -4,7 +4,7 @@ import 'package:restaurant_app/data/models/responses/Recommended.dart';
 part 'white_list.g.dart';
 
 @HiveType(typeId: 0)
-class WhiteList {
+class WhiteList extends HiveObject {
   @HiveField(0)
   int? id;
 

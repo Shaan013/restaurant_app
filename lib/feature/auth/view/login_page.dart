@@ -1,7 +1,5 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
-import 'package:restaurant_app/data/models/requasts/Login_model.dart';
-import 'package:restaurant_app/data/repository/user_repository.dart';
 import 'package:restaurant_app/feature/auth/widgets/login_widget.dart';
 import 'package:restaurant_app/feature/auth/widgets/signIn_widget.dart';
 import 'package:restaurant_app/generated/assets.dart';
@@ -20,11 +18,6 @@ class _LoginPageState extends State<LoginPage>
     with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
-    final AuthRepository authRepository = AuthRepository();
-    authRepository.checkLogin(
-      LoginModel(email: "john@example.com", password: "secret123"),
-    );
-    print("is sign in ${widget.isSigningPage}");
     final themeColors = Theme.of(context).colorScheme;
     return Scaffold(
       backgroundColor: themeColors.primaryContainer,

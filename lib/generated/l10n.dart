@@ -1219,6 +1219,96 @@ class S {
       args: [],
     );
   }
+
+  /// `unknow`
+  String get lblUnknow {
+    return Intl.message(
+      'unknow',
+      name: 'lblUnknow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `away from you`
+  String get smsAwayFromYou {
+    return Intl.message(
+      'away from you',
+      name: 'smsAwayFromYou',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reviews)`
+  String get smsReviews {
+    return Intl.message(
+      'Reviews)',
+      name: 'smsReviews',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `/per plate`
+  String get tegPerPlate {
+    return Intl.message(
+      '/per plate',
+      name: 'tegPerPlate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Description`
+  String get titleDescription {
+    return Intl.message(
+      'Description',
+      name: 'titleDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reviews & Others`
+  String get titleRreviewsOthers {
+    return Intl.message(
+      'Reviews & Others',
+      name: 'titleRreviewsOthers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get lblEmail {
+    return Intl.message(
+      'Email',
+      name: 'lblEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get lblPassword {
+    return Intl.message(
+      'Password',
+      name: 'lblPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forgot Password?`
+  String get lblForgotPassword {
+    return Intl.message(
+      'Forgot Password?',
+      name: 'lblForgotPassword',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

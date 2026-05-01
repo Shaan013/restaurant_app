@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:restaurant_app/core/network/base_response.dart';
 import 'package:restaurant_app/data/local_data/share_prefrence_info.dart';
 import 'package:restaurant_app/data/models/requasts/Login_model.dart';
+import 'package:restaurant_app/data/models/requasts/Logout_model.dart';
 import 'package:restaurant_app/data/models/responses/User_model.dart';
 import '../../core/exceptions/dio_exception_util.dart';
 import '../../core/locator/main_locator.dart';
@@ -53,6 +54,24 @@ class AuthRepository {
         print("i am in wrong place");
         return false;
       }
+    } on DioException catch (e) {
+      log("message  : ${e.message}");
+
+      final massage = DioExceptionUtil.handleError(e);
+      log("error massege : $massage");
+      throw massage;
+    } catch (e) {
+      print("e ${e}");
+      rethrow;
+    }
+  }
+
+  Future<bool> logOut(int id) async {
+    try {
+      final BaseResponse<dynamic> result = await _apiClient.logOut(
+        LogoutModel(userId: id),
+      );
+      return chackSussece(result.code);
     } on DioException catch (e) {
       log("message  : ${e.message}");
 

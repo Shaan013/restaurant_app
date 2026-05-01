@@ -86,25 +86,26 @@ class _LoginWidgetState extends State<LoginWidget> {
               children: [
                 TextFormField(
                   textInputAction: .next,
+                  keyboardType: .emailAddress,
                   controller: _loginController.emailController,
                   validator: (value) => ValidationHelper.validateEmail(value),
-                  decoration: AppInputDecoration.auth(prefixText: "Email"),
+                  decoration: AppInputDecoration.auth(prefixText: S.of(context).lblEmail),
                 ),
                 TextFormField(
                   textInputAction: .done,
                   controller: _loginController.passwordController,
                   validator: (value) => ValidationHelper.noEmpty(value),
-                  decoration: AppInputDecoration.auth(prefixText: "Password"),
+                  decoration: AppInputDecoration.auth(prefixText: S.of(context).lblPassword),
                 ),
                 GestureDetector(
                   onTap: () {},
-                  child: Text("Forgot Password?", style: textTheme.bodyLarge),
+                  child: Text(S.of(context).lblForgotPassword, style: textTheme.bodyLarge),
                 ),
               ],
             ),
           ),
           fullWidthButton(
-            text: "Log in",
+            text: S.of(context).logIn,
             color: Theme.of(context).colorScheme.primary,
             style: textTheme.labelLarge,
             onTap: () => _loginController.handleTrySubmit(context),

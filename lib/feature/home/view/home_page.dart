@@ -3,12 +3,15 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:restaurant_app/core/db/hive/hive_service.dart';
 import 'package:restaurant_app/core/locator/main_locator.dart';
 import 'package:restaurant_app/data/models/responses/Categories.dart';
+import 'package:restaurant_app/feature/auth/view_model/logout_conroller.dart';
 import 'package:restaurant_app/feature/home/widgets/category_list_view.dart';
 import 'package:restaurant_app/feature/home/widgets/home_bottom_navigation_bar.dart';
 import 'package:restaurant_app/feature/home/widgets/home_page_widget.dart';
 import 'package:restaurant_app/feature/home/widgets/near_hotels_widget.dart';
+import 'package:restaurant_app/feature/home/widgets/wish_list_show.dart';
 import 'package:restaurant_app/router/app_route.dart';
 import 'package:restaurant_app/values/extensions/app_padding_ext.dart';
 import 'package:restaurant_app/values/theme/app_border_radius.dart';
@@ -49,13 +52,13 @@ class _HomePageState extends State<HomePage> {
         index: pageIndex,
         children: [
           HomePageWidget(),
-          Center(child: Text(" cart coming soon... ")),
-          Center(child: Text(" shopping  coming soon... ")),
+          ShowFood(recList: HiveService.getListOfCart(), title: "cart List"),
+          ShowFood(recList: HiveService.getListOfWhish()),
           Center(
             child: ElevatedButton(
               onPressed: () {
-                locator<SharePrefrenceInfo>().setLogedOut();
-                context.router.replaceAll([LoginRoute()]);
+                final log = LogoutConroller();
+                log.handleTryLogout(context);
               },
               child: Text(" Log out"),
             ),

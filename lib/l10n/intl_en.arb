@@ -119,5 +119,14 @@
   "addEmployee" : "Add employee",
   "somethingWantWrongWithData": "something want wrong with data",
   "lblHomePage": "Home Page",
-  "headinggetStartedWithLobster": "Get Started with Lobster"
+  "headinggetStartedWithLobster": "Get Started with Lobster",
+  "lblUnknow": "unknow",
+  "smsAwayFromYou": "away from you",
+  "smsReviews": "Reviews)",
+  "tegPerPlate": "/per plate",
+  "titleDescription": "Description",
+  "titleRreviewsOthers": "Reviews & Others",
+  "lblEmail": "Email",
+  "lblPassword": "Password",
+  "lblForgotPassword": "Forgot Password?"
 }

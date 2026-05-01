@@ -1,21 +1,20 @@
-import 'package:auto_route/annotations.dart';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant_app/data/models/responses/Food.dart';
 import 'package:restaurant_app/data/models/responses/Food_model.dart';
-import 'package:restaurant_app/data/models/responses/Recommended.dart';
 import 'package:restaurant_app/data/store/food_detail_store.dart';
 import 'package:restaurant_app/feature/food_detail/widgets/food_page_observer.dart';
 import 'package:restaurant_app/values/extensions/app_padding_ext.dart';
 import 'package:restaurant_app/values/theme/app_border_radius.dart';
 import 'package:restaurant_app/values/theme/app_colors.dart';
-import 'package:restaurant_app/values/theme/app_edge_insets.dart';
 import 'package:restaurant_app/widgets/add_to_white_list_icon.dart';
 import 'package:restaurant_app/widgets/app_network_image.dart';
 import 'package:restaurant_app/widgets/lable_row_widget.dart';
 
 import '../../../generated/assets.dart';
+import '../../../generated/l10n.dart';
 import '../../../widgets/recommended_widget.dart';
 
 @RoutePage()
@@ -54,7 +53,7 @@ class _FoodDetailPageState extends State<FoodDetailPage> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          buildTopPart(context, food.imageUrl ?? "unknow"),
+          buildTopPart(context, food.imageUrl ?? S.of(context).lblUnknow),
           buildBottomPart(context, food).pAllM,
         ],
       ),
@@ -82,7 +81,7 @@ class _FoodDetailPageState extends State<FoodDetailPage> {
           children: [
             Expanded(
               child: Text(
-                food.title ?? "unknow",
+                food.title ??  S.of(context).lblUnknow,
                 style: TextTheme.of(context).headlineMedium,
                 maxLines: 2,
               ),
@@ -95,22 +94,22 @@ class _FoodDetailPageState extends State<FoodDetailPage> {
           children: [
             getLableRow(
               svgUrl: Assets.svgs.locationNorth.path,
-              text: "${food.distance} away from you ",
+              text: "${food.distance}}${S.of(context).smsAwayFromYou}",
               textStyle: TextTheme.of(context).titleMedium,
             ),
             getLableRow(
               svgUrl: Assets.svgs.vector1.path,
-              text: "${food.rating} (${food.reviewsCount}+ Reviwes) ",
+              text: "${food.rating} (${food.reviewsCount}${S.of(context).smsReviews}",
               textStyle: TextTheme.of(context).titleMedium,
             ),
           ],
         ),
         Text(
-          "\$ ${food.price} /per plate ",
+          "\$ ${food.price}${S.of(context).tegPerPlate}",
           style: TextTheme.of(context).headlineSmall,
         ),
 
-        buildtabs(dic: food.description ?? "unknow"),
+        buildtabs(dic: food.description ??  S.of(context).lblUnknow),
         RecommendedWidget(
           recList: food.recommended ??[],
         ),
@@ -128,8 +127,8 @@ class _FoodDetailPageState extends State<FoodDetailPage> {
           children: [
             TabBar(
               tabs: [
-                Tab(text: "Description"),
-                Tab(text: "Reviews & Others"),
+                Tab(text: S.of(context).titleDescription),
+                Tab(text: S.of(context).titleRreviewsOthers),
               ],
             ),
             Expanded(
