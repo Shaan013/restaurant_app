@@ -50,7 +50,7 @@ class _RecommendedWidgetState extends State<RecommendedWidget> {
                 child: ShowCaseCardWidget(
                   onTap: () => handleProjectTap(food.id!),
                   onAddWhite: (){
-                   HiveService.addFoodToWhit(food);
+                   HiveService.toggeleWhishList(food);
                   },
                   imageAspectRatio: 1,
                   hotel: NearbyHotels(

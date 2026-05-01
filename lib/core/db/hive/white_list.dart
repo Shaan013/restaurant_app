@@ -5,7 +5,6 @@ part 'white_list.g.dart';
 
 @HiveType(typeId: 0)
 class WhiteList {
-
   @HiveField(0)
   int? id;
 
@@ -26,26 +25,41 @@ class WhiteList {
 
   @HiveField(6)
   String? imageUrl;
-  //
-  // WhiteList(Recommended recomand) {
-  //   id = recomand.id;
-  //   title = recomand.title;
-  //   price = recomand.price;
-  //   rating = recomand.rating;
-  //   reviewsCount = recomand.reviewsCount;
-  //   distance = recomand.distance;
-  //   imageUrl = recomand.imageUrl;
-  // }
+
+  @HiveField(7)
+  int count = 1;
+
+  WhiteList.fromRecommended(Recommended recomand) {
+    id = recomand.id;
+    title = recomand.title;
+    price = recomand.price;
+    rating = recomand.rating;
+    reviewsCount = recomand.reviewsCount;
+    distance = recomand.distance;
+    imageUrl = recomand.imageUrl;
+  }
 
   WhiteList({
-    required  this.id,
+    required this.id,
     required this.title,
     required this.imageUrl,
     required this.distance,
     required this.rating,
     required this.price,
-    required this.reviewsCount
-});
+    required this.reviewsCount,
+  });
+
+  int get getCount => count;
+
+  void countIncrement() {
+    count++;
+  }
+
+  void countDecrement() {
+    count--;
+  }
+
+
   Recommended getModel() {
     return Recommended(
       id: id,

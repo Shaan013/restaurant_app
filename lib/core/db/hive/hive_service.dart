@@ -8,6 +8,7 @@ import 'model_address.dart';
 
 class HiveService {
   static const String whiteListBox = "White_list_boc";
+  static const String cartListBox = "cart_list_boc";
 
   static Future<void> init() async {
     await Hive.initFlutter();
@@ -26,23 +27,30 @@ class HiveService {
   }
 
   static Future<void> _openBoxes() async {
-    await Hive.openBox<Recommended>(whiteListBox);
+    await Hive.openBox<WhiteList>(whiteListBox);
+    await Hive.openBox<WhiteList>(cartListBox);
   }
 
   // Generic methods for productivity
   static Box<T> getBox<T>(String name) => Hive.box<T>(name);
 
-  static Future<void> addFoodToWhit(Recommended address) async {
-    log(" : i am in  add food white list food title is  :${address.title}");
-    final box = getBox<Recommended>(whiteListBox);
-    await box.add(address);
-    final res = getAllAddresses();
-
-    print("res ${res}");
+  static Future<void> toggeleWhishList(Recommended recommnended) async {
+    log(
+      " : i am in  add food white list food title is  :${recommnended.title}",
+    );
+    final box = getBox<WhiteList>(whiteListBox);
+    bool result = false;
+    if (box.containsKey(recommnended.id)) {
+      box.delete(recommnended.id);
+    } else {
+      await box.put(recommnended.id, WhiteList.fromRecommended(recommnended));
+      final res = getAllAddresses();
+      print("res ${res}");
+    }
   }
 
-  static List<Recommended> getAllAddresses() {
-    final box = getBox<Recommended>(whiteListBox);
+  static List<WhiteList> getAllAddresses() {
+    final box = getBox<WhiteList>(whiteListBox);
     return box.values.toList();
   }
 
